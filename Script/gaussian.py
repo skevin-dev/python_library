@@ -1,4 +1,5 @@
-import math 
+import math
+from statistics import stdev 
 import matplotlib.pyplot as plt 
 import numpy as np
 
@@ -32,5 +33,36 @@ class Gaussian():
 
         mean_dataset =  np.mean(self.data)
         self.mean = mean_dataset
-        
+
         return self.mean
+
+
+    def calculate_stdev(self,sample=True):
+        """The method to calculate the standard deviation of the data set
+
+        Args:
+           
+            sample(bool) whether the data represent a sample or population
+
+        Returns:
+             
+             float: the standard deviation of the dataset 
+        
+        """
+
+        if sample:
+            n = len(self.data) -1 
+
+        else:
+            n = len(self.data)
+
+        variance = sum((x-self.mean)**2 for x in self.data)
+
+        stdev_dataset = math.sqrt(variance/n)
+
+        self.stdev = stdev_dataset
+
+        return self.stdev
+
+
+
