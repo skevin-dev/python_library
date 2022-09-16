@@ -17,31 +17,6 @@ class Gaussian():
         self.mean = mu
         self.stdev = sigma
         self.data = []
-        
-    def read_data_file(self,filepath,sample=True):
-        """The method to read in data from txt file. the text file should have one number
-        per line. After reading in the file, the mean and standard deviation are calculated 
-
-        Args:
-
-            file_name(file): file containing data 
-
-        returns: 
-               
-               None 
-        
-        
-        """
-
-        with open(filepath) as file:
-            data = []
-            line = file.readline()
-            while line:
-                data.append(int(line))
-                line = file.readline()
-        file.close()
-
-        self_data = data
 
     def calculate_mean(self):
         """The method to calculate the mean of the data set
@@ -89,4 +64,30 @@ class Gaussian():
 
         return self.stdev
 
-    
+    def read_data_file(self,filepath,sample=True):
+        """The method to read in data from txt file. the text file should have one number
+        per line. After reading in the file, the mean and standard deviation are calculated 
+
+        Args:
+
+            file_name(file): file containing data 
+
+        returns: 
+               
+               None 
+        
+        
+        """
+
+        with open(filepath) as file:
+            data = []
+            line = file.readline()
+            while line:
+                data.append(int(line))
+                line = file.readline()
+        file.close()
+
+        self_data = data
+        self.mean = self.calculate_mean()
+        self.stdev = self.calculate_stdev(sample)
+
