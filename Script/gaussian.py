@@ -1,5 +1,6 @@
 import math 
 import matplotlib.pyplot as plt 
+import numpy as np
 
 class Gaussian():
     """ Gaussian distribution class for calculating and 
@@ -16,4 +17,20 @@ class Gaussian():
         self.stdev = sigma
         self.data = []
 
+    def calculate_mean(self):
+        """The method to calculate the mean of the data set
+
+        Args:
+
+             None 
+
+        Returns:
+
+            float: the mean of the dataset 
         
+        """
+
+        mean_dataset =  np.mean(self.data)
+        self.mean = mean_dataset
+        
+        return self.mean
