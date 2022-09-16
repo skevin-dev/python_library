@@ -87,7 +87,23 @@ class Gaussian():
                 line = file.readline()
         file.close()
 
-        self_data = data
+        self.data = data
         self.mean = self.calculate_mean()
         self.stdev = self.calculate_stdev(sample)
 
+    def plot_histogram():
+        """The method to plot the hisogram of the data
+
+        Args:
+            None
+
+        Returns: 
+              None
+        
+        """
+        plt.hist(self.data)
+        plt.title("Distribution of data")
+        plt.xlabel("data")
+        plt.ylabel("Frequency")
+
+    
