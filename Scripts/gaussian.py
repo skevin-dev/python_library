@@ -91,7 +91,7 @@ class Gaussian():
         self.mean = self.calculate_mean()
         self.stdev = self.calculate_stdev(sample)
 
-    def plot_histogram():
+    def plot_histogram(self):
         """The method to plot the hisogram of the data
 
         Args:
