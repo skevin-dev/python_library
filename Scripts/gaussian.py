@@ -2,6 +2,7 @@ import math
 from statistics import stdev 
 import matplotlib.pyplot as plt 
 import numpy as np
+from .App_log import logger
 
 class Gaussian():
     """ Gaussian distribution class for calculating and 
@@ -17,7 +18,8 @@ class Gaussian():
         self.mean = mu
         self.stdev = sigma
         self.data = []
-
+        logger.info("initializing class attributes")
+        
     def calculate_mean(self):
         """The method to calculate the mean of the data set
 
@@ -33,6 +35,7 @@ class Gaussian():
 
         mean_dataset =  np.mean(self.data)
         self.mean = mean_dataset
+        logger.info("calculate the mean")
 
         return self.mean
 
@@ -61,6 +64,8 @@ class Gaussian():
         stdev_dataset = math.sqrt(variance/n)
 
         self.stdev = stdev_dataset
+        logger.info("calculate the standard deviation")
+
 
         return self.stdev
 
@@ -90,6 +95,8 @@ class Gaussian():
         self.data = data
         self.mean = self.calculate_mean()
         self.stdev = self.calculate_stdev(sample)
+        logger.info("read the file")
+
 
     def plot_histogram(self):
         """The method to plot the hisogram of the data
@@ -105,6 +112,8 @@ class Gaussian():
         plt.title("Distribution of data")
         plt.xlabel("data")
         plt.ylabel("Frequency")
+        logger.info("plot histogram")
+
 
     def pdf(self, x):
         """Probability density function calculator for the gaussian distribution.
@@ -166,26 +175,31 @@ class Gaussian():
 
         return x, y
 
-     def __add__(self, other):
+    def __add__(self, other):
+        
+            
         
         """Function to add together two Gaussian distributions
-        
+
         Args:
             other (Gaussian): Gaussian instance
-            
+
         Returns:
             Gaussian: Gaussian distribution
-            
+
         """
-        
+
         result = Gaussian()
         result.mean = self.mean + other.mean
         result.stdev = math.sqrt(self.stdev ** 2 + other.stdev ** 2)
-        
+        logger.info("add to gaussian")
+
+
         return result
-        
-        
+
+
     def __repr__(self):
+        
     
         """Function to output the characteristics of the Gaussian instance
         

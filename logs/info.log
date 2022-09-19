@@ -1,0 +1,5 @@
+2022-09-19 11:18:17,926:Scripts.App_log:initializing class attributes
+2022-09-19 11:18:17,972:Scripts.App_log:calculate the mean
+2022-09-19 11:18:17,973:Scripts.App_log:calculate the standard deviation
+2022-09-19 11:18:17,974:Scripts.App_log:read the file
+2022-09-19 11:18:18,180:Scripts.App_log:plot histogram
